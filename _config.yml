@@ -1,8 +1,14 @@
-description: "Cloud & DevOps Engineer"
-remote_theme: jekyll-theme-hack
-plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
+title: Ashwin Kumar M
+description: Cloud & DevOps Engineer | SRE | Ex-Technical Team Lead
+theme: jekyll-theme-midnight
+show_downloads: false
+google_analytics: 
 
-minimal_mistakes_skin: "dark" # Options: "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-search: false
+# Customizing the layout
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# User Links (These appear in the sidebar/header automatically in this theme)
+github:
+  is_project_page: false
