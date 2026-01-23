@@ -12,16 +12,15 @@
     <style>
         :root {
             /* --- RED / WHITE / BLACK THEME --- */
-            --bg-dark: #050505;       /* Pure Black */
+            --bg-dark: #050505;
             --glass-bg: rgba(20, 20, 20, 0.7);
             --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;     /* Pure White */
-            --text-muted: #a3a3a3;    /* Silver Gray */
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
             
-            --accent: #ff0033;        /* Vibrant Crimson Red */
+            --accent: #ff0033;
             --accent-glow: rgba(255, 0, 51, 0.6);
             
-            /* Fiery Gradient */
             --gradient-vibrant: linear-gradient(90deg, #ff0033, #ffffff, #8b0000, #ff0033);
         }
 
@@ -34,7 +33,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-dark); /* Fallback */
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
@@ -47,7 +46,8 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -1;
+            z-index: -1; 
+            /* Added deep gradient here so particles sit on top of it */
             background: radial-gradient(circle at center, #1a0505 0%, #000000 100%);
         }
 
@@ -82,6 +82,7 @@
             animation: gradient-move 5s linear infinite;
             filter: drop-shadow(0 0 15px rgba(255, 0, 51, 0.5));
             margin-bottom: 1rem;
+            line-height: 1.1;
         }
 
         @keyframes gradient-move {
@@ -107,6 +108,8 @@
             gap: 1.5rem;
             margin-top: 2rem;
             animation: fadeInUp 1s ease-out 0.5s both;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn-glass {
@@ -138,7 +141,7 @@
             opacity: 0;
             filter: blur(5px);
             transform: translateY(50px);
-            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
         .show-el {
             opacity: 1;
@@ -147,7 +150,7 @@
         }
 
         /* --- SECTIONS --- */
-        section { padding: 100px 0; }
+        section { padding: 80px 0; }
 
         .section-title {
             font-size: 2.5rem;
@@ -176,6 +179,7 @@
             color: var(--text-main);
             text-decoration: none;
             display: block;
+            height: 100%; /* Ensures equal height in grid */
         }
 
         .glass-card:hover {
@@ -184,10 +188,10 @@
             box-shadow: 0 10px 30px -10px rgba(255, 0, 51, 0.3);
         }
 
-        /* --- SKILLS GRID REDESIGN --- */
+        /* --- SKILLS GRID --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
@@ -212,7 +216,6 @@
             font-size: 0.95rem;
         }
         
-        /* Icon wrapper for alignment */
         .skill-list li span.icon-box {
             width: 25px;
             color: var(--accent);
@@ -268,12 +271,18 @@
         .cert-item { display: flex; align-items: center; gap: 1rem; }
         .cert-icon { font-size: 2rem; color: #fff; background: var(--accent); padding: 15px; border-radius: 12px; box-shadow: 0 0 15px rgba(255, 0, 51, 0.4); }
 
+        /* --- ANIMATIONS --- */
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { 50% { border-color: transparent } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.5rem; letter-spacing: 1px; }
             .typewriter { font-size: 0.9rem; white-space: normal; border: none; width: auto; animation: fadeInUp 1s ease-out; }
-            .hero-contacts { flex-direction: column; width: 100%; align-items: center; }
+            .hero-contacts { flex-direction: column; width: 100%; align-items: center; gap: 1rem; }
             .btn-glass { width: 80%; justify-content: center; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -293,8 +302,8 @@
             </div>
         </section>
 
-        <section id="about" class="hidden-el">
-            <div class="glass-card" style="text-align: center;">
+        <section id="about">
+            <div class="glass-card hidden-el" style="text-align: center;">
                 <h2 style="margin-bottom: 1rem; color: var(--accent); font-family: 'Orbitron', sans-serif;">About Me</h2>
                 <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
                     Results-driven Cloud & DevOps Engineer with over 7 years of experience in Network Operations, Infrastructure Management and Automations. 
@@ -305,11 +314,11 @@
             </div>
         </section>
 
-        <section id="skills" class="hidden-el">
-            <h2 class="section-title">Technical Ecosystem</h2>
+        <section id="skills">
+            <h2 class="section-title hidden-el">Technical Ecosystem</h2>
             <div class="skills-grid">
                 
-                <div class="glass-card hidden-el">
+                <div class="glass-card hidden-el" style="transition-delay: 100ms;">
                     <div class="skill-header">
                         <i class="fas fa-cloud"></i>
                         <h3>Cloud Infrastructure</h3>
@@ -320,7 +329,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card hidden-el">
+                <div class="glass-card hidden-el" style="transition-delay: 200ms;">
                     <div class="skill-header">
                         <i class="fas fa-dharmachakra"></i>
                         <h3>Orchestration & Containers</h3>
@@ -332,7 +341,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card hidden-el">
+                <div class="glass-card hidden-el" style="transition-delay: 300ms;">
                     <div class="skill-header">
                         <i class="fas fa-code-branch"></i>
                         <h3>IaC & Config Mgmt</h3>
@@ -344,7 +353,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card hidden-el">
+                <div class="glass-card hidden-el" style="transition-delay: 400ms;">
                     <div class="skill-header">
                         <i class="fas fa-sync-alt"></i>
                         <h3>CI/CD & Automation</h3>
@@ -357,7 +366,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card hidden-el">
+                <div class="glass-card hidden-el" style="transition-delay: 100ms;">
                     <div class="skill-header">
                         <i class="fas fa-chart-line"></i>
                         <h3>Observability & Logging</h3>
@@ -369,7 +378,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card hidden-el">
+                <div class="glass-card hidden-el" style="transition-delay: 200ms;">
                     <div class="skill-header">
                         <i class="fas fa-shield-alt"></i>
                         <h3>Cloud Net & Security</h3>
@@ -382,7 +391,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card hidden-el">
+                <div class="glass-card hidden-el" style="transition-delay: 300ms;">
                     <div class="skill-header">
                         <i class="fas fa-database"></i>
                         <h3>Databases & Data</h3>
@@ -395,7 +404,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card lang-bar hidden-el">
+                <div class="glass-card lang-bar hidden-el" style="transition-delay: 400ms;">
                     <div class="lang-item"><i class="fab fa-python"></i> Python</div>
                     <div class="lang-item"><i class="fas fa-terminal"></i> Bash</div>
                     <div class="lang-item"><i class="fas fa-code"></i> HCL</div>
@@ -406,11 +415,11 @@
             </div>
         </section>
 
-        <section id="projects" class="hidden-el">
-            <h2 class="section-title">Key Projects</h2>
+        <section id="projects">
+            <h2 class="section-title hidden-el">Key Projects</h2>
             <div class="project-grid">
                 
-                <a href="https://github.com/ashwinseenu/hybrid-cloud-ops-aws-gcp" target="_blank" class="glass-card hidden-el project-link">
+                <a href="https://github.com/ashwinseenu/hybrid-cloud-ops-aws-gcp" target="_blank" class="glass-card hidden-el project-link" style="transition-delay: 100ms;">
                     <div class="project-header">
                         <div class="project-title">Hybrid Cloud Infrastructure</div>
                         <i class="fas fa-external-link-alt project-icon"></i>
@@ -425,7 +434,7 @@
                     </ul>
                 </a>
 
-                <a href="https://github.com/ashwinseenu/Docker-ansible-flask-gunicorn" target="_blank" class="glass-card hidden-el project-link">
+                <a href="https://github.com/ashwinseenu/Docker-ansible-flask-gunicorn" target="_blank" class="glass-card hidden-el project-link" style="transition-delay: 200ms;">
                     <div class="project-header">
                         <div class="project-title">Automated Container Deployment</div>
                         <i class="fas fa-external-link-alt project-icon"></i>
@@ -440,7 +449,7 @@
                     </ul>
                 </a>
 
-                <a href="https://github.com/ashwinseenu/kubernetes/tree/master/k8s-helm" target="_blank" class="glass-card hidden-el project-link">
+                <a href="https://github.com/ashwinseenu/kubernetes/tree/master/k8s-helm" target="_blank" class="glass-card hidden-el project-link" style="transition-delay: 300ms;">
                     <div class="project-header">
                         <div class="project-title">Microservices Orchestration</div>
                         <i class="fas fa-external-link-alt project-icon"></i>
@@ -458,24 +467,24 @@
             </div>
         </section>
 
-        <section id="certs" class="hidden-el">
-            <h2 class="section-title">Certifications</h2>
+        <section id="certs">
+            <h2 class="section-title hidden-el">Certifications</h2>
             <div class="cert-grid">
-                <div class="glass-card cert-item hidden-el">
+                <div class="glass-card cert-item hidden-el" style="transition-delay: 100ms;">
                     <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
                     <div>
                         <h4 style="color: #fff;">CCNA – Network & Switching</h4>
                         <span style="color: var(--text-muted); font-size: 0.9rem;">Juniper Technologies</span>
                     </div>
                 </div>
-                <div class="glass-card cert-item hidden-el">
+                <div class="glass-card cert-item hidden-el" style="transition-delay: 200ms;">
                     <div class="cert-icon"><i class="fas fa-user-shield"></i></div>
                     <div>
                         <h4 style="color: #fff;">Penetration Testing</h4>
                         <span style="color: var(--text-muted); font-size: 0.9rem;">Cybrary.it</span>
                     </div>
                 </div>
-                <div class="glass-card cert-item hidden-el">
+                <div class="glass-card cert-item hidden-el" style="transition-delay: 300ms;">
                     <div class="cert-icon"><i class="fas fa-search"></i></div>
                     <div>
                         <h4 style="color: #fff;">Computer Forensics</h4>
@@ -486,7 +495,7 @@
         </section>
 
         <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.1);">
-            <p>&copy; 2025 Ashwin Kumar Built with <i class="fas fa-heart" style="color: var(--accent);"></i> Love</p>
+            <p>&copy; 2025 Ashwin Kumar M. Built with <i class="fas fa-heart" style="color: var(--accent);"></i> & Particles.js</p>
         </footer>
     </div>
 
@@ -512,9 +521,12 @@
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) entry.target.classList.add('show-el');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-el');
+                }
             });
-        });
+        }, { threshold: 0.1 }); // Trigger when 10% visible
+
         document.querySelectorAll('.hidden-el').forEach((el) => observer.observe(el));
     </script>
 </body>
