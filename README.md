@@ -1,5 +1,5 @@
 # ASWIN KUMAR M
-**Cloud & DevOps Engineer | SRE | Ex-Technical Team Lead**
+**Cloud & DevOps Engineer**
 
 [![Email](https://img.shields.io/badge/Email-ashwinseenu577%40gmail.com-red?style=flat-square&logo=gmail)](mailto:ashwinseenu577@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ashwin%20Kumar-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/ashwin-kumar-s77/)
@@ -10,7 +10,7 @@
 ---
 
 ## 👨‍💻 Professional Summary
-Results-driven Cloud & DevOps Engineer with over **7 years of experience** in Network Operations and Infrastructure Management. Transitioning from a strong background in network engineering to cloud automation and orchestration. Proficient in **AWS and GCP** environments, utilizing **Terraform** for IaC and **Ansible** for configuration management. Skilled in **Kubernetes** administration and **Helm** charting for efficient application delivery.
+Results-driven Cloud & DevOps Engineer with over **7 years of experience** in Network Operations, Infrastructure Management, Automations. Transitioning from a strong background in network engineering to cloud automation and orchestration. Proficient in **AWS and GCP** environments, utilizing **Terraform** for IaC and **Ansible** for configuration management. Skilled in **Kubernetes** administration and **Helm** charting for efficient application delivery.
 
 ---
 
