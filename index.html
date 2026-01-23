@@ -11,22 +11,26 @@
     
     <style>
         :root {
-            --bg-dark: #0a0f1c;
-            --glass-bg: rgba(30, 41, 59, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.5);
-            /* New Vibrant Gradient */
-            --gradient-vibrant: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
+            /* --- RED / WHITE / BLACK THEME --- */
+            --bg-dark: #050505;       /* Pure Black */
+            --glass-bg: rgba(20, 20, 20, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;     /* Pure White */
+            --text-muted: #a3a3a3;    /* Silver Gray */
+            
+            --accent: #ff0033;        /* Vibrant Crimson Red */
+            --accent-dark: #cc0000;
+            --accent-glow: rgba(255, 0, 51, 0.6);
+            
+            /* Fiery Gradient */
+            --gradient-vibrant: linear-gradient(90deg, #ff0033, #ffffff, #8b0000, #ff0033);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth; /* Ensures smooth scrolling for buttons */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -37,7 +41,7 @@
             line-height: 1.6;
         }
 
-        /* --- PARTICLES --- */
+        /* --- RED PARTICLES BACKGROUND --- */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -45,7 +49,8 @@
             top: 0;
             left: 0;
             z-index: -1;
-            background: radial-gradient(circle at center, #111827 0%, #0a0f1c 100%);
+            /* Subtle vignette effect */
+            background: radial-gradient(circle at center, #1a0505 0%, #000000 100%);
         }
 
         .container {
@@ -67,22 +72,23 @@
             padding-top: 60px;
         }
 
-        /* UPDATED NAME STYLING */
+        /* RED NEON NAME */
         .hero h1 {
-            font-family: 'Orbitron', sans-serif; /* New Sci-Fi Font */
+            font-family: 'Orbitron', sans-serif;
             font-size: 5rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             
-            /* Animated Gradient Text */
+            /* Gradient Text */
             background: var(--gradient-vibrant);
             background-size: 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradient-move 6s linear infinite;
+            animation: gradient-move 5s linear infinite;
             
+            /* Red Glow Shadow */
+            filter: drop-shadow(0 0 15px rgba(255, 0, 51, 0.5));
             margin-bottom: 1rem;
-            text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
         }
 
         @keyframes gradient-move {
@@ -93,13 +99,14 @@
         .typewriter {
             font-family: 'JetBrains Mono', monospace;
             font-size: 1.25rem;
-            color: var(--accent);
+            color: var(--text-main);
             border-right: 2px solid var(--accent);
             white-space: nowrap;
             overflow: hidden;
             width: 0;
             animation: typing 3.5s steps(40, end) forwards, blink .75s step-end infinite;
             margin: 0 auto 2rem auto;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .hero-contacts {
@@ -109,28 +116,30 @@
             animation: fadeInUp 1s ease-out 0.5s both;
         }
 
+        /* RED & BLACK GLASS BUTTONS */
         .btn-glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--accent);
             color: var(--text-main);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            font-weight: 500;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 10px rgba(255, 0, 51, 0.1);
         }
 
         .btn-glass:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 25px var(--accent-glow);
+            background: var(--accent);
+            color: #000; /* Text turns black on red bg for contrast */
             border-color: var(--accent);
-            color: #fff;
-            background: rgba(56, 189, 248, 0.2);
         }
 
         /* --- SCROLL ANIMATION CLASSES --- */
@@ -147,30 +156,41 @@
             transform: translateY(0);
         }
 
-        /* --- CARDS & SECTIONS --- */
+        /* --- SECTIONS & CARDS --- */
         section { padding: 100px 0; }
 
         .glass-card {
-            background: var(--glass-bg);
+            background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             padding: 2rem;
             transition: all 0.4s;
             position: relative;
         }
 
+        /* Hover effect: Red Border + Glow */
         .glass-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px -10px rgba(255, 0, 51, 0.3);
         }
 
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 3rem;
             text-align: center;
-            font-family: 'Orbitron', sans-serif; /* Matching the title font */
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 10px;
+            /* Center the title block */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         /* --- GRID LAYOUTS --- */
@@ -200,18 +220,21 @@
             gap: 10px;
         }
         .project-title { font-size: 1.5rem; color: #fff; font-weight: bold; }
+        
         .tags { display: flex; gap: 8px; flex-wrap: wrap; }
         .tag {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(255, 0, 51, 0.1);
             color: var(--accent);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
             font-family: 'JetBrains Mono', monospace;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            border: 1px solid rgba(255, 0, 51, 0.3);
         }
+
         .project-details ul { padding-left: 20px; }
         .project-details li { margin-bottom: 8px; color: var(--text-muted); }
+        .project-details li::marker { color: var(--accent); }
 
         .cert-grid {
             display: grid;
@@ -221,10 +244,11 @@
         .cert-item { display: flex; align-items: center; gap: 1rem; }
         .cert-icon {
             font-size: 2rem;
-            color: var(--accent);
-            background: rgba(56, 189, 248, 0.1);
+            color: var(--text-main); /* White icon */
+            background: var(--accent); /* Red background */
             padding: 15px;
             border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
         }
 
         /* --- ANIMATIONS --- */
@@ -272,7 +296,7 @@
                 <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
                     Results-driven Cloud & DevOps Engineer with over 7 years of experience in Network Operations, Infrastructure Management and Automation. 
                     Transitioning from a strong background in network engineering to cloud automation and orchestration. 
-                    Proficient in <span style="color:white">AWS & GCP</span>, utilizing <span style="color:white">Terraform</span> for IaC and <span style="color:white">Ansible</span> for config management. 
+                    Proficient in <span style="color:var(--text-main); font-weight:bold;">AWS & GCP</span>, utilizing <span style="color:var(--text-main); font-weight:bold;">Terraform</span> for IaC and <span style="color:var(--text-main); font-weight:bold;">Ansible</span> for config management. 
                     Skilled in Kubernetes administration and Helm charting for efficient application delivery.
                 </p>
             </div>
@@ -284,31 +308,31 @@
                 <div class="glass-card hidden-el" style="transition-delay: 100ms;">
                     <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-cloud"></i> Cloud Platforms</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> AWS (EC2, S3, ECS, VPC, IAM)</li>
-                        <li><i class="fas fa-check"></i> GCP (Compute Engine, Storage)</li>
+                        <li><i class="fas fa-bolt"></i> AWS (EC2, S3, ECS, VPC, IAM)</li>
+                        <li><i class="fas fa-bolt"></i> GCP (Compute Engine, Storage)</li>
                     </ul>
                 </div>
                 <div class="glass-card hidden-el" style="transition-delay: 200ms;">
                     <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-code-branch"></i> IaC & Config</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Terraform (Modules, Remote State)</li>
-                        <li><i class="fas fa-check"></i> Ansible (Playbooks, Roles)</li>
-                        <li><i class="fas fa-check"></i> HCL, YAML</li>
+                        <li><i class="fas fa-bolt"></i> Terraform (Modules, Remote State)</li>
+                        <li><i class="fas fa-bolt"></i> Ansible (Playbooks, Roles)</li>
+                        <li><i class="fas fa-bolt"></i> HCL, YAML</li>
                     </ul>
                 </div>
                 <div class="glass-card hidden-el" style="transition-delay: 300ms;">
                     <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-box"></i> Containerization</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Kubernetes (K8s), Helm</li>
-                        <li><i class="fas fa-check"></i> Docker, Kafka, Nginx</li>
+                        <li><i class="fas fa-bolt"></i> Kubernetes (K8s), Helm</li>
+                        <li><i class="fas fa-bolt"></i> Docker, Kafka, Nginx</li>
                     </ul>
                 </div>
                 <div class="glass-card hidden-el" style="transition-delay: 400ms;">
                     <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-tools"></i> Tools & Ops</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Jenkins, GitHub Actions</li>
-                        <li><i class="fas fa-check"></i> Splunk, Prometheus</li>
-                        <li><i class="fas fa-check"></i> Python, Bash/Shell</li>
+                        <li><i class="fas fa-bolt"></i> Jenkins, GitHub Actions</li>
+                        <li><i class="fas fa-bolt"></i> Splunk, Prometheus</li>
+                        <li><i class="fas fa-bolt"></i> Python, Bash/Shell</li>
                     </ul>
                 </div>
             </div>
@@ -402,22 +426,28 @@
             </div>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); border-top: 1px solid var(--glass-border);">
-            <p>&copy; 2025 Ashwin Kumar Built with <i class="fas fa-heart" style="color: var(--accent);"></i>Love</p>
+        <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy; 2025 Ashwin Kumar Built with <i class="fas fa-heart" style="color: var(--accent);"></i> Love</p>
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // 1. Particle JS Config
+        // 1. Particle JS Config - RED THEME
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#38bdf8" },
+                "color": { "value": "#ff0033" }, /* RED DOTS */
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5, "random": false },
                 "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#ff0033", /* RED LINES */
+                    "opacity": 0.2, 
+                    "width": 1 
+                },
                 "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
@@ -428,7 +458,7 @@
                     "resize": true
                 },
                 "modes": {
-                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } },
                     "push": { "particles_nb": 4 }
                 }
             },
@@ -438,7 +468,6 @@
         // 2. Intersection Observer for Scroll Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                console.log(entry)
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show-el');
                 }
