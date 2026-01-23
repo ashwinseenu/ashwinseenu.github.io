@@ -1,7 +1,5 @@
-title: Ashwin Kumar M
-author: Ashwin Kumar M
 description: "Cloud & DevOps Engineer"
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: jekyll-theme-hack
 plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
