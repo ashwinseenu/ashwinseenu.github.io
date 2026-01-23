@@ -4,6 +4,7 @@ description: "Cloud & DevOps Engineer"
 remote_theme: mmistakes/minimal-mistakes
 plugins:
   - jekyll-remote-theme
+  - jekyll-include-cache
 
 minimal_mistakes_skin: "dark" # Options: "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: false
