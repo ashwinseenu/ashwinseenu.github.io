@@ -1,0 +1,9 @@
+title: Ashwin Kumar M
+author: Ashwin Kumar M
+description: "Cloud & DevOps Engineer"
+remote_theme: mmistakes/minimal-mistakes
+plugins:
+  - jekyll-remote-theme
+
+minimal_mistakes_skin: "dark" # Options: "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+search: false
