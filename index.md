@@ -26,9 +26,9 @@ Results-driven Cloud & DevOps Engineer with over **7 years of experience** in Ne
 ---
 
 ## 📜 Certifications
-* **CCNA – Network & Switching** — *Juniper Technologies, 2019*
-* **Penetration Testing & Ethical Hacking** — *Cybrary.it, 2019*
-* **Computer Forensics** — *Cybrary.it, 2019*
+* **CCNA – Network & Switching** — *Juniper Technologies*
+* **Penetration Testing & Ethical Hacking** — *Cybrary.it*
+* **Computer Forensics** — *Cybrary.it*
 
 ---
 
