@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashwin Kumar M | Cloud & DevOps Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0f1c; /* Deep Space Blue */
+            --glass-bg: rgba(30, 41, 59, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8; /* Sky Blue */
+            --accent-glow: rgba(56, 189, 248, 0.3);
+            --gradient-1: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- BACKGROUND PARTICLES CONTAINER --- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: radial-gradient(circle at center, #111827 0%, #0a0f1c 100%);
+        }
+
+        /* --- TYPOGRAPHY & UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; transition: all 0.3s ease; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .typewriter {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--accent);
+            border-right: 2px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3.5s steps(40, end) forwards, blink .75s step-end infinite;
+            margin: 0 auto 2rem auto;
+        }
+
+        .hero-contacts {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .btn-glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .btn-glass:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px var(--accent-glow);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section { padding: 100px 0; }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-1);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- CARDS (Glassmorphism) --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        .glass-card:hover::before { transform: translateX(100%); }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-list li {
+            list-style: none;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .skill-list li i { color: var(--accent); margin-right: 10px; font-size: 0.8rem; }
+
+        /* --- PROJECTS --- */
+        .project-grid { display: grid; gap: 2rem; }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-title { font-size: 1.5rem; color: #fff; }
+
+        .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .project-details ul { padding-left: 20px; }
+        .project-details li { margin-bottom: 8px; color: var(--text-muted); }
+
+        /* --- CERTIFICATIONS --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { 50% { border-color: transparent } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .typewriter { font-size: 0.9rem; white-space: normal; border: none; width: auto; animation: fadeInUp 1s ease-out; }
+            .hero-contacts { flex-direction: column; width: 100%; align-items: center; }
+            .btn-glass { width: 80%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <section class="hero">
+            <h1>ASWIN KUMAR M</h1>
+            <div class="typewriter">Cloud & DevOps Engineer</div>
+            
+            <div class="hero-contacts">
+                <a href="mailto:ashwinseenu577@gmail.com" class="btn-glass">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="https://linkedin.com/in/ashwin-kumar-s77/" target="_blank" class="btn-glass">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/ashwinseenu" target="_blank" class="btn-glass">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="btn-glass">
+                    <i class="fas fa-file-download"></i> Resume
+                </a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="glass-card" style="text-align: center;">
+                <h2 style="margin-bottom: 1rem; color: var(--accent);">About Me</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    Results-driven Cloud & DevOps Engineer with over 7 years of experience in Network Operations and Infrastructure Management. 
+                    Transitioning from a strong background in network engineering to cloud automation and orchestration. 
+                    Proficient in <span style="color:white">AWS & GCP</span>, utilizing <span style="color:white">Terraform</span> for IaC and <span style="color:white">Ansible</span> for config management. 
+                    Skilled in Kubernetes administration and Helm charting for efficient application delivery.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="glass-card">
+                    <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> AWS (EC2, S3, ECS, VPC, IAM)</li>
+                        <li><i class="fas fa-check"></i> GCP (Compute Engine, Storage)</li>
+                    </ul>
+                </div>
+                <div class="glass-card">
+                    <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-code-branch"></i> IaC & Config</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Terraform (Modules, Remote State)</li>
+                        <li><i class="fas fa-check"></i> Ansible (Playbooks, Roles)</li>
+                        <li><i class="fas fa-check"></i> HCL, YAML</li>
+                    </ul>
+                </div>
+                <div class="glass-card">
+                    <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-box"></i> Containerization</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Kubernetes (K8s), Helm</li>
+                        <li><i class="fas fa-check"></i> Docker, Kafka, Nginx</li>
+                    </ul>
+                </div>
+                <div class="glass-card">
+                    <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-tools"></i> Tools & Ops</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Jenkins, GitHub Actions</li>
+                        <li><i class="fas fa-check"></i> Splunk, Prometheus</li>
+                        <li><i class="fas fa-check"></i> Python, Bash/Shell</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="project-grid">
+                
+                <div class="glass-card">
+                    <div class="project-header">
+                        <div class="project-title">Hybrid Cloud Infrastructure Orchestration</div>
+                        <div class="tags">
+                            <span class="tag">AWS</span>
+                            <span class="tag">GCP</span>
+                            <span class="tag">Terraform</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Designed a multi-cloud environment orchestrating worker nodes on both AWS EC2 and GCP Compute Engine using a centralized control node.</li>
+                            <li>Developed modular Terraform scripts to provision VPCs, Subnets, and Instances with S3 backend and DynamoDB state locking.</li>
+                            <li>Automated the "bootstrap" phase using Ansible playbooks, reducing provisioning time by 80%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="project-header">
+                        <div class="project-title">Automated Container Deployment</div>
+                        <div class="tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Containerized a Python Flask web application using Docker to eliminate environment/OS mismatch issues.</li>
+                            <li>Automated the end-to-end deployment pipeline using Ansible playbooks to provision servers and deploy containers without intervention.</li>
+                            <li>Configured Gunicorn as a production-grade WSGI server for high availability.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="project-header">
+                        <div class="project-title">Multi-Tier Microservices Orchestration</div>
+                        <div class="tags">
+                            <span class="tag">K8s</span>
+                            <span class="tag">Helm</span>
+                            <span class="tag">Splunk</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Architected a unified Helm Chart to orchestrate a hybrid workload (Nginx, Kafka, Splunk).</li>
+                            <li>Implemented auto-scaling (HPA) for Nginx pods based on custom packets-per-second metrics.</li>
+                            <li>Engineered high-availability storage using StatefulSets and volumeClaimTemplates for Kafka.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="certs">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="glass-card cert-item">
+                    <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+                    <div>
+                        <h4 style="color: #fff;">CCNA – Network & Switching</h4>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">Juniper Technologies, 2019</span>
+                    </div>
+                </div>
+                <div class="glass-card cert-item">
+                    <div class="cert-icon"><i class="fas fa-user-shield"></i></div>
+                    <div>
+                        <h4 style="color: #fff;">Penetration Testing</h4>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">Cybrary.it, 2019</span>
+                    </div>
+                </div>
+                <div class="glass-card cert-item">
+                    <div class="cert-icon"><i class="fas fa-search"></i></div>
+                    <div>
+                        <h4 style="color: #fff;">Computer Forensics</h4>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">Cybrary.it, 2019</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); border-top: 1px solid var(--glass-border);">
+            <p>&copy; 2025 Ashwin Kumar M. Built with <i class="fas fa-heart" style="color: var(--accent);"></i> & Particles.js</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particle JS Configuration
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#38bdf8" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
