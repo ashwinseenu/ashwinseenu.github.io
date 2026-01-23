@@ -1,0 +1,104 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* CUSTOM DEVOPS DARK MODE OVERRIDE 
+   Theme: Leap Day (Customized)
+   Author: Ashwin Kumar M (via Gemini)
+*/
+
+:root {
+  --bg-dark: #0f172a;        /* Slate 900 */
+  --bg-card: #1e293b;        /* Slate 800 */
+  --text-main: #f1f5f9;      /* Slate 100 */
+  --text-muted: #94a3b8;     /* Slate 400 */
+  --accent: #38bdf8;         /* Sky 400 */
+  --accent-hover: #0ea5e9;   /* Sky 500 */
+  --border: #334155;         /* Slate 700 */
+}
+
+/* 1. Reset Body Background (Remove default texture) */
+body {
+  background: var(--bg-dark) !important;
+  color: var(--text-main) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* 2. Header & Banner Customization */
+header, #banner {
+  background: var(--bg-card) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Title Color */
+header h1, header h2 {
+  color: var(--text-main) !important;
+  text-shadow: none !important; /* Removes default shadow */
+}
+
+/* Subtitle/Description */
+header p {
+  color: var(--text-muted) !important;
+}
+
+/* 3. Main Content Area */
+section {
+  width: 90% !important;
+  max-width: 900px !important;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+/* Headings (H1, H2, H3) */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main) !important;
+  border-bottom: none !important;
+}
+
+h2 {
+  border-left: 5px solid var(--accent);
+  padding-left: 15px;
+  margin-top: 40px !important;
+}
+
+/* 4. Links */
+a {
+  color: var(--accent) !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--accent-hover) !important;
+  text-decoration: underline;
+}
+
+/* 5. Project/Skill Cards (Simulated) */
+/* This targets the 'Certifications' and 'Projects' lists if you used bullet points */
+ul li {
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+ul li strong {
+  color: var(--text-main); /* Highlights bold text like Project Titles */
+}
+
+/* 6. Code Blocks (Terminal Style) */
+pre, code {
+  background-color: #020617 !important; /* Very dark slate */
+  color: #a5f3fc !important; /* Cyan text */
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* 7. Footer */
+footer {
+  color: var(--text-muted) !important;
+  font-size: 0.8rem;
+}
+
+footer a {
+  color: var(--text-muted) !important;
+}
